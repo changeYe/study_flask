@@ -1,7 +1,7 @@
-from flask import jsonify, Blueprint, request
+from flask import jsonify, request
 
-from Helper import is_keyword
-from YuShu_Book import Yushu_Book
+from app.libs.Helper import is_keyword
+from app.spider.YuShu_Book import Yushu_Book
 from app.forms.param_valid import SearchForm
 from app.web.my_blueprint import web
 
@@ -21,7 +21,7 @@ def hello():
         print('验证成功')
         return 'hello world'
     else:
-        return 'hello fail'
+        return jsonify(form.errors)
 
 
 @web.route("/book/search/<p>/<page>")

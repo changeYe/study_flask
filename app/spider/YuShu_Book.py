@@ -1,5 +1,5 @@
-from Httper import Http
-
+from app.libs.Httper import Http
+from flask import current_app
 
 # 具体数据的查询
 class Yushu_Book:
